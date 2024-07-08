@@ -80,6 +80,7 @@ function minCashFlowRecursion(amount) {
 // Given a set of persons as graph where graph[i][j] indicates the amount that person i needs to 
 // pay person j, this function finds and prints the minimum cash flow to settle all debts
 export function minCashFlow(graph) {
+  result = [0, 0, 0, 0, 0, 0]
   // Create an array called amount, initialize all values as 0
   var amount = Array.from({length: N}, (_, i) => 0);
 

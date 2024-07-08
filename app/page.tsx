@@ -12,7 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Calculator, MoveRight } from 'lucide-react';
+import { Calculator, MoveRight, CircleAlert } from 'lucide-react';
 
 function App() {
   // state
@@ -26,6 +26,10 @@ function App() {
   const [crystalPaysAshish, setCrystalPaysAshish] = useState(0)
   const [ashishPaysWilson, setAshishPaysWilson] = useState(0)
   const [ashishPaysCrystal, setAshishPaysCrystal] = useState(0)
+
+  const [wilsonAmountFixed, setWilsonAmountFixed] = useState(0)
+  const [crystalAmountFixed, setCrystalAmountFixed] = useState(0)
+  const [ashishAmountFixed, setAshishAmountFixed] = useState(0)
 
   let calculate = (event: React.FormEvent) => {
     // prevent submitting
@@ -46,6 +50,10 @@ function App() {
     setCrystalPaysAshish(result[3])
     setAshishPaysWilson(result[4])
     setAshishPaysCrystal(result[5])
+
+    setWilsonAmountFixed(wilsonAmount)
+    setCrystalAmountFixed(crystalAmount)
+    setAshishAmountFixed(ashishAmount)
   }
 
   let reload = () => {
@@ -56,44 +64,44 @@ function App() {
     <div className="app">
       <div className="container">
         <h1 style={{marginTop: 10 + "px"}}>Wil's Weally Wonderful Wcamping Wcalculator</h1>
-        <form onSubmit={calculate}>
-          <div style={{display: "flex", marginTop: 15 + "px"}}>
-            <Avatar>
-              <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/wilson.png" />
-              <AvatarFallback>WL</AvatarFallback>
-            </Avatar>
-            <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>wilson & fam</Badge>
-            <Input placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(Number(event.target.value))} />
-          </div>
+        <div style={{display: "flex", marginTop: 15 + "px"}}>
+          <Avatar>
+            <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/wilson.png" />
+            <AvatarFallback>WL</AvatarFallback>
+          </Avatar>
+          <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>wilson & fam</Badge>
+          <Input placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(Number(event.target.value))} />
+        </div>
 
-          <div style={{display: "flex", marginTop: 15 + "px"}}>
-            <Avatar>
-              <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/crystal.png" />
-              <AvatarFallback>CS</AvatarFallback>
-            </Avatar>
-            <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>crystal & fam</Badge>
-            <Input placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(Number(event.target.value))} />
-          </div>
+        <div style={{display: "flex", marginTop: 15 + "px"}}>
+          <Avatar>
+            <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/crystal.png" />
+            <AvatarFallback>CS</AvatarFallback>
+          </Avatar>
+          <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>crystal & fam</Badge>
+          <Input placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(Number(event.target.value))} />
+        </div>
 
-          <div style={{display: "flex", marginTop: 15 + "px"}}>
-            <Avatar>
-              <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/ashish.png" />
-              <AvatarFallback>AL</AvatarFallback>
-            </Avatar>
-            <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>ashish & fam</Badge>
-            <Input placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(Number(event.target.value))} />
-          </div>
-
-
-          <div style={{display: "flex", marginTop: 15 + "px"}}>
-            <Button>
-              <Calculator/> calculate!
-            </Button>
-          </div>
-        </form>
-        <form onSubmit={reload}>
-              <Button style={{marginTop: 10 + "px"}}>clear</Button>
-        </form>
+        <div style={{display: "flex", marginTop: 15 + "px"}}>
+          <Avatar>
+            <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/ashish.png" />
+            <AvatarFallback>AL</AvatarFallback>
+          </Avatar>
+          <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>ashish & fam</Badge>
+          <Input placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(Number(event.target.value))} />
+        </div>
+        <div style={{display: "flex"}}>
+          <form onSubmit={calculate}>
+            <div style={{display: "flex", marginTop: 15 + "px"}}>
+              <Button>
+                <Calculator/> calculate!
+              </Button>
+            </div>
+          </form>
+          <form onSubmit={reload}>
+                <Button style={{marginTop: 15 + "px", marginLeft: 10 + "px"}}>clear</Button>
+          </form>
+        </div>
 
         <div style={{display: "flex"}}>
           <div>
@@ -127,11 +135,11 @@ function App() {
             </div>
             <div style={{display: "flex"}}>
               <p>-</p>
-              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(wilsonAmount) + Number(wilsonPaysCrystal) + Number(wilsonPaysAshish)}</p>
+              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(wilsonAmountFixed) + Number(wilsonPaysCrystal) + Number(wilsonPaysAshish)}</p>
               <p style={{marginLeft: 10 + "px"}}>+</p>
               <p style={{color: "green", marginLeft: 10 + "px"}}>{crystalPaysWilson + ashishPaysWilson}</p>
               <p style={{marginLeft: 10 + "px"}}>=</p>
-              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-wilsonAmount - (wilsonPaysCrystal + wilsonPaysAshish) + crystalPaysWilson + ashishPaysWilson)}</p>
+              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-wilsonAmountFixed - (wilsonPaysCrystal + wilsonPaysAshish) + crystalPaysWilson + ashishPaysWilson)}</p>
             </div>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
             <div style={{display: "flex"}}>
@@ -139,11 +147,11 @@ function App() {
             </div>
             <div style={{display: "flex"}}>
               <p>-</p>
-              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(crystalAmount) + Number(crystalPaysWilson) + Number(crystalPaysAshish)}</p>
+              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(crystalAmountFixed) + Number(crystalPaysWilson) + Number(crystalPaysAshish)}</p>
               <p style={{marginLeft: 10 + "px"}}>+</p>
               <p style={{color: "green", marginLeft: 10 + "px"}}>{wilsonPaysCrystal + ashishPaysCrystal}</p>
               <p style={{marginLeft: 10 + "px"}}>=</p>
-              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-crystalAmount - (crystalPaysWilson + crystalPaysAshish) + wilsonPaysCrystal + ashishPaysCrystal)}</p>
+              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-crystalAmountFixed - (crystalPaysWilson + crystalPaysAshish) + wilsonPaysCrystal + ashishPaysCrystal)}</p>
             </div>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
             <div style={{display: "flex"}}>
@@ -151,29 +159,60 @@ function App() {
             </div>
             <div style={{display: "flex"}}>
               <p>-</p>
-              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(ashishAmount) + Number(ashishPaysWilson) + Number(ashishPaysCrystal)}</p>
+              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(ashishAmountFixed) + Number(ashishPaysWilson) + Number(ashishPaysCrystal)}</p>
               <p style={{marginLeft: 10 + "px"}}>+</p>
               <p style={{color: "green", marginLeft: 10 + "px"}}>{wilsonPaysAshish + crystalPaysAshish}</p>
               <p style={{marginLeft: 10 + "px"}}>=</p>
-              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-ashishAmount - (ashishPaysWilson + ashishPaysCrystal) + wilsonPaysAshish + crystalPaysAshish)}</p>
+              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-ashishAmountFixed - (ashishPaysWilson + ashishPaysCrystal) + wilsonPaysAshish + crystalPaysAshish)}</p>
             </div>
           </div>
         </div>
-        <div style={{marginTop: 100 + "px", width: 50 + "%"}}>
+        <div style={{marginTop: 40 + "px"}}>
+          <Badge variant="outline" style={{width: 600 + "px", height: 30 + "px", display: "flex"}}>
+            <CircleAlert style={{height: 20 + "px"}}/>
+            <p>heads up! this calculator rounds to the nearest dollar, so it will&nbsp;<u>not</u>&nbsp;be accurate to the decimal</p>
+          </Badge>
+        </div>
+        <div style={{width: 50 + "%"}}>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>How does this work? 🤔</AccordionTrigger>
               <AccordionContent>
-                <p>Curious, aren't ya? This project uses what's called a <a style={{textDecoration: "red wavy underline"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible).</p>
+                <p>Curious, are ya? This project uses what's called a <a style={{textDecoration: "red underline"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible).</p>
                 <br/>
                 <p>The rough idea of this algorithm is to calculate the net amount for every person by subtracting all debts (amounts to pay) from all credits (amounts to be paid). Once the net amount for every person is evaluated, find the two people with maximum and minimum net amounts– they are the largest creditors and debtors. The person with minimum of the two will be the first person to be settled and removed from list. Let the minimum of two amounts be 𝒙. We pay 𝒙 amount from the maximum debtor to maximum creditor and settle one person. If x is equal to the maximum debit, then the maximum debtor is settled, otherwise the maximum creditor is settled. Continue this process in a recursive loop until both the maximum credit and maximum are zero, or sufficiently small for your purposes.</p>
                 <br/>
-                <p> Crystal the cool cow and Ashish the artistic armadillo– this won't mean much to you now, but if you get into coding later, this project was built on a <a style={{textDecoration: "red underline"}} href="https://nextjs.org/">next.js framework</a> with <a style={{textDecoration: "red underline"}} href="https://react.dev/">React</a> and deployed via <a style={{textDecoration: "red underline"}} href="https://vercel.com">Vercel</a>. The frontend was built using components from <a style={{textDecoration: "red underline"}} href="https://ui.shadcn.com/">shadcn/ui</a>.</p>
+                <p> C the cool cow and A the artistic armadillo– this won't mean much to yall now, but if you get into coding later, this project was built on a <a style={{textDecoration: "red underline"}} href="https://nextjs.org/">next.js framework</a> with <a style={{textDecoration: "red underline"}} href="https://react.dev/">React</a> and deployed via <a style={{textDecoration: "red underline"}} href="https://vercel.com">Vercel</a>. The frontend was built using components from <a style={{textDecoration: "red underline"}} href="https://ui.shadcn.com/">shadcn/ui</a>.</p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
       </div>
+      <footer className="py-6 md:px-8 md:py-0">
+        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+          <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
+            Built by{" "}
+            <a
+              href={"https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/problems%3F.png"}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              wils
+            </a>
+              . Source code available on{" "}
+            <a
+              href={"https://github.com/wilson-lama/wcalculator"}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
