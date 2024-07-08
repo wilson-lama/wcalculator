@@ -58,7 +58,7 @@ function minCashFlowRecursion(amount) {
     result[2] = Math.round(min)
   } else if (maxDebit == 1 && maxCredit == 2) {
     result[3] = Math.round(min)
-  } else if (maxDebit == 2 && maxCredit == 1) {
+  } else if (maxDebit == 2 && maxCredit == 0) {
     result[4] = Math.round(min)
   } else if (maxDebit == 2 && maxCredit == 1) {
     result[5] = Math.round(min)
