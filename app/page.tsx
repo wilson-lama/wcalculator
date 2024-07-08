@@ -27,7 +27,7 @@ function App() {
   const [ashishPaysWilson, setAshishPaysWilson] = useState(0)
   const [ashishPaysCrystal, setAshishPaysCrystal] = useState(0)
 
-  let calculate = (event) => {
+  let calculate = (event: React.FormEvent) => {
     // prevent submitting
     event.preventDefault()
 
@@ -63,25 +63,25 @@ function App() {
               <AvatarFallback>WL</AvatarFallback>
             </Avatar>
             <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>wilson & fam</Badge>
-            <Input placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(event.target.value)} />
+            <Input placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(Number(event.target.value))} />
           </div>
 
           <div style={{display: "flex", marginTop: 15 + "px"}}>
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/crystal.png" />
               <AvatarFallback>CS</AvatarFallback>
             </Avatar>
             <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>crystal & fam</Badge>
-            <Input placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(event.target.value)} />
+            <Input placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(Number(event.target.value))} />
           </div>
 
           <div style={{display: "flex", marginTop: 15 + "px"}}>
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/ashish.png" />
               <AvatarFallback>AL</AvatarFallback>
             </Avatar>
             <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>ashish & fam</Badge>
-            <Input placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(event.target.value)} />
+            <Input placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(Number(event.target.value))} />
           </div>
 
 
@@ -164,9 +164,9 @@ function App() {
             <AccordionItem value="item-1">
               <AccordionTrigger>How does this work? 🤔</AccordionTrigger>
               <AccordionContent>
-                <p>Curious, aren't ya? This project uses what's called a <a style={{textDecoration: "red wavy underline"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead some problems down the line with optimization and time-complexity (making your algorithm run as fast as possible).</p>
+                <p>Curious, aren't ya? This project uses what's called a <a style={{textDecoration: "red wavy underline"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible).</p>
                 <br/>
-                <p>The rough idea of this algorithm is to calculate the net amount for every person by subtracting all debts (amounts to pay) from all credits (amounts to be paid). Once the net amount for every person is evaluated, find the two people with maximum and minimum net amounts– they are the largest creditors and debtors. The person with minimum of the two will be the first person to be settled and removed from list. Let the minimum of two amounts be 𝒙. We pay 𝒙 amount from the maximum debtor to maximum creditor and settle one person. If x is equal to the maximum debit, then maximum debtor is settled, otherwise the maximum creditor is settled. Continue this process in a recursive loop until both the maximum credit and maximum are zero, or sufficiently small for your purposes.</p>
+                <p>The rough idea of this algorithm is to calculate the net amount for every person by subtracting all debts (amounts to pay) from all credits (amounts to be paid). Once the net amount for every person is evaluated, find the two people with maximum and minimum net amounts– they are the largest creditors and debtors. The person with minimum of the two will be the first person to be settled and removed from list. Let the minimum of two amounts be 𝒙. We pay 𝒙 amount from the maximum debtor to maximum creditor and settle one person. If x is equal to the maximum debit, then the maximum debtor is settled, otherwise the maximum creditor is settled. Continue this process in a recursive loop until both the maximum credit and maximum are zero, or sufficiently small for your purposes.</p>
                 <br/>
                 <p> Crystal the cool cow and Ashish the artistic armadillo– this won't mean much to you now, but if you get into coding later, this project was built on a <a style={{textDecoration: "red underline"}} href="https://nextjs.org/">next.js framework</a> with <a style={{textDecoration: "red underline"}} href="https://react.dev/">React</a> and deployed via <a style={{textDecoration: "red underline"}} href="https://vercel.com">Vercel</a>. The frontend was built using components from <a style={{textDecoration: "red underline"}} href="https://ui.shadcn.com/">shadcn/ui</a>.</p>
               </AccordionContent>
