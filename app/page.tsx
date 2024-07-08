@@ -169,12 +169,12 @@ function App() {
         </div>
         <div style={{marginTop: 10 + "px"}}>
           <Badge variant="outline" style={{width: "full", height: 30 + "px", display: "flex"}}>
-            <CircleAlert style={{height: 20 + "px"}}/>
+            <CircleAlert style={{height: 30 + "px"}}/>
             <p>heads up! this calculator rounds to the nearest dollar, so it will&nbsp;<u>not</u>&nbsp;be accurate to the decimal</p>
           </Badge>
         </div>
         <Separator style={{marginTop: 10 + "px", marginBottom: 10 + "px", width: "full"}}/>
-        <div style={{width: 50 + "%"}}>
+        <div style={{width: "full"}}>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>How does this work? 🤔</AccordionTrigger>
