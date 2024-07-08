@@ -12,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Separator } from "@/components/ui/separator"
 import { Calculator, MoveRight, CircleAlert } from 'lucide-react';
 
 function App() {
@@ -102,18 +103,9 @@ function App() {
                 <Button style={{marginTop: 15 + "px", marginLeft: 10 + "px"}}>clear</Button>
           </form>
         </div>
-
-        <div style={{display: "flex"}}>
-          <div>
-            <h1 style={{marginTop: 10 + "px", marginBottom: 5 + "px"}}>here ya go: </h1>
-          </div>
-          <div style={{display: "flex", marginTop: 10 + "px", marginBottom: 5 + "px", marginLeft: 3 + "px"}}>
-            <h1 style={{color: "red"}}>initial paid & paid to others</h1>
-            <h1 style={{marginLeft: 3 + "px", marginRight: 3 + "px"}}>|</h1>
-            <h1 style={{color: "green"}}>received from others</h1>
-            <h1 style={{marginLeft: 3 + "px", marginRight: 3 + "px"}}>|</h1>
-            <h1>total paid</h1>
-          </div>
+        <Separator style={{marginTop: 15 + "px", marginBottom: 10 + "px", width: "full"}}/>
+        <div>
+          <h1 style={{marginTop: 10 + "px", marginBottom: 5 + "px"}}>here ya go: </h1>
         </div>
         <div style={{display: "flex"}}>
           <div>
@@ -129,56 +121,65 @@ function App() {
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 300 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
             <p style={{display: "flex"}}>ashish <MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> crystal 🤑 | ${ashishPaysCrystal}</p>
           </div>
-          <div style={{marginLeft: 50 + "px"}}>
-            <div style={{display: "flex"}}>
-              <p>wil:</p>
-            </div>
-            <div style={{display: "flex"}}>
-              <p>-</p>
-              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(wilsonAmountFixed) + Number(wilsonPaysCrystal) + Number(wilsonPaysAshish)}</p>
-              <p style={{marginLeft: 10 + "px"}}>+</p>
-              <p style={{color: "green", marginLeft: 10 + "px"}}>{crystalPaysWilson + ashishPaysWilson}</p>
-              <p style={{marginLeft: 10 + "px"}}>=</p>
-              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-wilsonAmountFixed - (wilsonPaysCrystal + wilsonPaysAshish) + crystalPaysWilson + ashishPaysWilson)}</p>
-            </div>
-            <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <div style={{display: "flex"}}>
-              <p>crys:</p>
-            </div>
-            <div style={{display: "flex"}}>
-              <p>-</p>
-              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(crystalAmountFixed) + Number(crystalPaysWilson) + Number(crystalPaysAshish)}</p>
-              <p style={{marginLeft: 10 + "px"}}>+</p>
-              <p style={{color: "green", marginLeft: 10 + "px"}}>{wilsonPaysCrystal + ashishPaysCrystal}</p>
-              <p style={{marginLeft: 10 + "px"}}>=</p>
-              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-crystalAmountFixed - (crystalPaysWilson + crystalPaysAshish) + wilsonPaysCrystal + ashishPaysCrystal)}</p>
-            </div>
-            <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <div style={{display: "flex"}}>
-              <p>ash:</p>
-            </div>
-            <div style={{display: "flex"}}>
-              <p>-</p>
-              <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(ashishAmountFixed) + Number(ashishPaysWilson) + Number(ashishPaysCrystal)}</p>
-              <p style={{marginLeft: 10 + "px"}}>+</p>
-              <p style={{color: "green", marginLeft: 10 + "px"}}>{wilsonPaysAshish + crystalPaysAshish}</p>
-              <p style={{marginLeft: 10 + "px"}}>=</p>
-              <p style={{marginLeft: 10 + "px"}}>{Math.abs(-ashishAmountFixed - (ashishPaysWilson + ashishPaysCrystal) + wilsonPaysAshish + crystalPaysAshish)}</p>
-            </div>
+        </div>
+        <Separator style={{marginTop: 15 + "px", marginBottom: 10 + "px", width: "full"}}/>
+        <div style={{display: "flex", marginTop: 10 + "px", marginBottom: 5 + "px", marginLeft: 3 + "px"}}>
+          <h1 style={{color: "red"}}>initial paid & paid to others</h1>
+          <h1 style={{marginLeft: 3 + "px", marginRight: 3 + "px"}}>|</h1>
+          <h1 style={{color: "green"}}>received from others</h1>
+          <h1 style={{marginLeft: 3 + "px", marginRight: 3 + "px"}}>|</h1>
+          <h1>total paid</h1>
+        </div>
+        <div>
+          <div style={{display: "flex"}}>
+            <p>wil:</p>
+          </div>
+          <div style={{display: "flex"}}>
+            <p>-</p>
+            <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(wilsonAmountFixed) + Number(wilsonPaysCrystal) + Number(wilsonPaysAshish)}</p>
+            <p style={{marginLeft: 10 + "px"}}>+</p>
+            <p style={{color: "green", marginLeft: 10 + "px"}}>{crystalPaysWilson + ashishPaysWilson}</p>
+            <p style={{marginLeft: 10 + "px"}}>=</p>
+            <p style={{marginLeft: 10 + "px"}}>{Math.abs(-wilsonAmountFixed - (wilsonPaysCrystal + wilsonPaysAshish) + crystalPaysWilson + ashishPaysWilson)}</p>
+          </div>
+          <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
+          <div style={{display: "flex"}}>
+            <p>crys:</p>
+          </div>
+          <div style={{display: "flex"}}>
+            <p>-</p>
+            <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(crystalAmountFixed) + Number(crystalPaysWilson) + Number(crystalPaysAshish)}</p>
+            <p style={{marginLeft: 10 + "px"}}>+</p>
+            <p style={{color: "green", marginLeft: 10 + "px"}}>{wilsonPaysCrystal + ashishPaysCrystal}</p>
+            <p style={{marginLeft: 10 + "px"}}>=</p>
+            <p style={{marginLeft: 10 + "px"}}>{Math.abs(-crystalAmountFixed - (crystalPaysWilson + crystalPaysAshish) + wilsonPaysCrystal + ashishPaysCrystal)}</p>
+          </div>
+          <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
+          <div style={{display: "flex"}}>
+            <p>ash:</p>
+          </div>
+          <div style={{display: "flex"}}>
+            <p>-</p>
+            <p style={{color: "red", marginLeft: 10 + "px"}}>{Number(ashishAmountFixed) + Number(ashishPaysWilson) + Number(ashishPaysCrystal)}</p>
+            <p style={{marginLeft: 10 + "px"}}>+</p>
+            <p style={{color: "green", marginLeft: 10 + "px"}}>{wilsonPaysAshish + crystalPaysAshish}</p>
+            <p style={{marginLeft: 10 + "px"}}>=</p>
+            <p style={{marginLeft: 10 + "px"}}>{Math.abs(-ashishAmountFixed - (ashishPaysWilson + ashishPaysCrystal) + wilsonPaysAshish + crystalPaysAshish)}</p>
           </div>
         </div>
-        <div style={{marginTop: 40 + "px"}}>
-          <Badge variant="outline" style={{width: 600 + "px", height: 30 + "px", display: "flex"}}>
+        <div style={{marginTop: 10 + "px"}}>
+          <Badge variant="outline" style={{width: "full", height: 30 + "px", display: "flex"}}>
             <CircleAlert style={{height: 20 + "px"}}/>
             <p>heads up! this calculator rounds to the nearest dollar, so it will&nbsp;<u>not</u>&nbsp;be accurate to the decimal</p>
           </Badge>
         </div>
+        <Separator style={{marginTop: 10 + "px", marginBottom: 10 + "px", width: "full"}}/>
         <div style={{width: 50 + "%"}}>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>How does this work? 🤔</AccordionTrigger>
               <AccordionContent>
-                <p>Curious, are ya? This project uses what's called a <a style={{textDecoration: "red underline"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible).</p>
+                <p>Curious, are ya? This project uses what's called a <a style={{textDecoration: "red underline"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible). However, for this project, it'll do just fine.</p>
                 <br/>
                 <p>The rough idea of this algorithm is to calculate the net amount for every person by subtracting all debts (amounts to pay) from all credits (amounts to be paid). Once the net amount for every person is evaluated, find the two people with maximum and minimum net amounts– they are the largest creditors and debtors. The person with minimum of the two will be the first person to be settled and removed from list. Let the minimum of two amounts be 𝒙. We pay 𝒙 amount from the maximum debtor to maximum creditor and settle one person. If x is equal to the maximum debit, then the maximum debtor is settled, otherwise the maximum creditor is settled. Continue this process in a recursive loop until both the maximum credit and maximum are zero, or sufficiently small for your purposes.</p>
                 <br/>
