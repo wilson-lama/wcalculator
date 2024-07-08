@@ -71,7 +71,7 @@ function App() {
             <AvatarFallback>WL</AvatarFallback>
           </Avatar>
           <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>wilson & fam</Badge>
-          <Input placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(Number(event.target.value))} />
+          <Input type="number" placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(Number(event.target.value))} />
         </div>
 
         <div style={{display: "flex", marginTop: 15 + "px"}}>
@@ -80,7 +80,7 @@ function App() {
             <AvatarFallback>CS</AvatarFallback>
           </Avatar>
           <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>crystal & fam</Badge>
-          <Input placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(Number(event.target.value))} />
+          <Input type="number" placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(Number(event.target.value))} />
         </div>
 
         <div style={{display: "flex", marginTop: 15 + "px"}}>
@@ -89,7 +89,7 @@ function App() {
             <AvatarFallback>AL</AvatarFallback>
           </Avatar>
           <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>ashish & fam</Badge>
-          <Input placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(Number(event.target.value))} />
+          <Input type="number" placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(Number(event.target.value))} />
         </div>
         <div style={{display: "flex"}}>
           <form onSubmit={calculate}>
