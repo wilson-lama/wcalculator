@@ -168,8 +168,8 @@ function App() {
           </div>
         </div>
         <div style={{marginTop: 10 + "px"}}>
-          <Badge variant="outline" style={{width: "full", height: 30 + "px", display: "flex"}}>
-            <CircleAlert style={{height: 30 + "px"}}/>
+          <Badge variant="outline" style={{width: "full", height: 40 + "px", display: "flex"}}>
+            <CircleAlert style={{height: 20 + "px"}}/>
             <p>heads up! this calculator rounds to the nearest dollar, so it will&nbsp;<u>not</u>&nbsp;be accurate to the decimal</p>
           </Badge>
         </div>
