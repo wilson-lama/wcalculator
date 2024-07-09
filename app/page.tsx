@@ -15,11 +15,13 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { Calculator, MoveRight, CircleAlert } from 'lucide-react';
 
+const initialAmountValue = 0
+
 function App() {
   // state
-  const [wilsonAmount, setWilsonAmount] = useState(0)
-  const [crystalAmount, setCrystalAmount] = useState(0)
-  const [ashishAmount, setAshishAmount] = useState(0)
+  const [wilsonAmount, setWilsonAmount] = useState(initialAmountValue)
+  const [crystalAmount, setCrystalAmount] = useState(initialAmountValue)
+  const [ashishAmount, setAshishAmount] = useState(initialAmountValue)
 
   const [wilsonPaysCrystal, setWilsonPaysCrystal] = useState(0)
   const [wilsonPaysAshish, setWilsonPaysAshish] = useState(0)
@@ -33,28 +35,32 @@ function App() {
   const [ashishAmountFixed, setAshishAmountFixed] = useState(0)
 
   let calculate = (event: React.FormEvent) => {
-    // prevent submitting
-    event.preventDefault()
+    if (Number.isNaN(wilsonAmount) || Number.isNaN(crystalAmount) || Number.isNaN(ashishAmount) || wilsonAmount < 0 || crystalAmount < 0 || ashishAmount < 0) {
+      alert('Please enter a valid positive number')
+    } else {
+      // prevent submitting
+      event.preventDefault()
 
-    // graph[i][j] indicates the amount 
-    // that person i needs to pay person j
-    var graph = [ [0, crystalAmount / 3, ashishAmount / 3],
-                  [wilsonAmount / 3, 0, ashishAmount / 3],
-                  [wilsonAmount / 3, crystalAmount / 3, 0] ];
+      // graph[i][j] indicates the amount 
+      // that person i needs to pay person j
+      var graph = [ [0, crystalAmount / 3, ashishAmount / 3],
+                    [wilsonAmount / 3, 0, ashishAmount / 3],
+                    [wilsonAmount / 3, crystalAmount / 3, 0] ];
 
-    let result = minCashFlow(graph) || [0, 0, 0, 0, 0, 0]
+      let result = minCashFlow(graph) || [0, 0, 0, 0, 0, 0]
 
-    // [w -> c, w -> a, c -> w, c -> a, a -> w, a -> c]
-    setWilsonPaysCrystal(result[0])
-    setWilsonPaysAshish(result[1])
-    setCrystalPaysWilson(result[2])
-    setCrystalPaysAshish(result[3])
-    setAshishPaysWilson(result[4])
-    setAshishPaysCrystal(result[5])
+      // [w -> c, w -> a, c -> w, c -> a, a -> w, a -> c]
+      setWilsonPaysCrystal(result[0])
+      setWilsonPaysAshish(result[1])
+      setCrystalPaysWilson(result[2])
+      setCrystalPaysAshish(result[3])
+      setAshishPaysWilson(result[4])
+      setAshishPaysCrystal(result[5])
 
-    setWilsonAmountFixed(wilsonAmount)
-    setCrystalAmountFixed(crystalAmount)
-    setAshishAmountFixed(ashishAmount)
+      setWilsonAmountFixed(wilsonAmount)
+      setCrystalAmountFixed(crystalAmount)
+      setAshishAmountFixed(ashishAmount)
+    }
   }
 
   let reload = () => {
@@ -71,7 +77,7 @@ function App() {
             <AvatarFallback>WL</AvatarFallback>
           </Avatar>
           <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>wilson & fam</Badge>
-          <Input type="number" placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(Number(event.target.value))} />
+          <Input type="number" placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(event.target.valueAsNumber)} />
         </div>
 
         <div style={{display: "flex", marginTop: 15 + "px"}}>
@@ -80,7 +86,7 @@ function App() {
             <AvatarFallback>CS</AvatarFallback>
           </Avatar>
           <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>crystal & fam</Badge>
-          <Input type="number" placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(Number(event.target.value))} />
+          <Input type="number" placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(event.target.valueAsNumber)} />
         </div>
 
         <div style={{display: "flex", marginTop: 15 + "px"}}>
@@ -89,7 +95,7 @@ function App() {
             <AvatarFallback>AL</AvatarFallback>
           </Avatar>
           <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>ashish & fam</Badge>
-          <Input type="number" placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(Number(event.target.value))} />
+          <Input type="number" placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(event.target.valueAsNumber)} />
         </div>
         <div style={{display: "flex"}}>
           <form onSubmit={calculate}>
