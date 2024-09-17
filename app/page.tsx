@@ -70,31 +70,24 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <h1 style={{marginTop: 10 + "px"}}>Wil's Weally Wonderful Wcamping Wcalculator</h1>
+        <h1 style={{marginTop: 10 + "px", fontSize: 30 + "px"}}>Camping Calculator</h1>
+        <h1 style={{marginTop: 10 + "px", textDecoration: "underline"}}>Person | Total Amount Spent</h1>
         <div style={{display: "flex", marginTop: 15 + "px"}}>
           <Avatar>
-            <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/wilson.png" />
-            <AvatarFallback>WL</AvatarFallback>
+            <AvatarFallback>A</AvatarFallback>
           </Avatar>
-          <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>wilson & fam</Badge>
           <Input type="number" placeholder="Amount" value={wilsonAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setWilsonAmount(event.target.valueAsNumber)} />
         </div>
-
         <div style={{display: "flex", marginTop: 15 + "px"}}>
           <Avatar>
-            <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/crystal.png" />
-            <AvatarFallback>CS</AvatarFallback>
+            <AvatarFallback>B</AvatarFallback>
           </Avatar>
-          <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>crystal & fam</Badge>
           <Input type="number" placeholder="Amount" value={crystalAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setCrystalAmount(event.target.valueAsNumber)} />
         </div>
-
         <div style={{display: "flex", marginTop: 15 + "px"}}>
           <Avatar>
-            <AvatarImage src="https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/ashish.png" />
-            <AvatarFallback>AL</AvatarFallback>
+            <AvatarFallback>C</AvatarFallback>
           </Avatar>
-          <Badge variant="default" style={{marginLeft: 15 + "px", height: 25 + "px"}}>ashish & fam</Badge>
           <Input type="number" placeholder="Amount" value={ashishAmount} style={{width: 20 + "%", marginLeft: 20 + "px"}} onChange={(event) => setAshishAmount(event.target.valueAsNumber)} />
         </div>
         <div style={{display: "flex"}}>
@@ -111,34 +104,34 @@ function App() {
         </div>
         <Separator style={{marginTop: 15 + "px", marginBottom: 10 + "px", width: "full"}}/>
         <div>
-          <h1 style={{marginTop: 10 + "px", marginBottom: 5 + "px"}}>here ya go: </h1>
+          <h1 style={{marginTop: 10 + "px", marginBottom: 5 + "px", textDecoration: "underline"}}>Redistributions: </h1>
         </div>
         <div style={{display: "flex"}}>
           <div>
-            <p style={{display: "flex"}}>wilson<MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> crystal 🤑 | ${wilsonPaysCrystal}</p>
+            <p style={{display: "flex"}}>Person A pays Person B ${wilsonPaysCrystal}</p>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 300 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <p style={{display: "flex"}}>wilson <MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> ashish 🤑 | ${wilsonPaysAshish}</p>
+            <p style={{display: "flex"}}>Person A pays Person C ${wilsonPaysAshish}</p>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 300 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <p style={{display: "flex"}}>crystal <MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> wilson 🤑 | ${crystalPaysWilson}</p>
+            <p style={{display: "flex"}}>Person B pays Person A ${crystalPaysWilson}</p>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 300 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <p style={{display: "flex"}}>crystal <MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> ashish 🤑 | ${crystalPaysAshish}</p>
+            <p style={{display: "flex"}}>Person B pays Person C ${crystalPaysAshish}</p>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 300 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <p style={{display: "flex"}}>ashish <MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> wilson 🤑 | ${ashishPaysWilson}</p>
+            <p style={{display: "flex"}}>Person C pays Person A ${ashishPaysWilson}</p>
             <hr style={{backgroundColor: "black", height: 2 + "px", width: 300 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
-            <p style={{display: "flex"}}>ashish <MoveRight style={{marginLeft: 10 + "px", marginRight: 10 + "px"}}/> crystal 🤑 | ${ashishPaysCrystal}</p>
+            <p style={{display: "flex"}}>Person C pays Person B ${ashishPaysCrystal}</p>
           </div>
         </div>
         <Separator style={{marginTop: 15 + "px", marginBottom: 10 + "px", width: "full"}}/>
-        <div style={{display: "flex", marginTop: 10 + "px", marginBottom: 5 + "px", marginLeft: 3 + "px"}}>
-          <h1 style={{color: "red"}}>initial paid & paid to others</h1>
+        <div style={{display: "flex", marginTop: 10 + "px", marginBottom: 5 + "px"}}>
+          <h1 style={{color: "red", textDecoration: "underline black"}}>initial paid & paid to others</h1>
           <h1 style={{marginLeft: 3 + "px", marginRight: 3 + "px"}}>|</h1>
-          <h1 style={{color: "green"}}>received from others</h1>
+          <h1 style={{color: "green", textDecoration: "underline black"}}>received from others</h1>
           <h1 style={{marginLeft: 3 + "px", marginRight: 3 + "px"}}>|</h1>
-          <h1>total paid</h1>
+          <h1 style={{textDecoration: "underline black"}}>total paid</h1>
         </div>
         <div>
           <div style={{display: "flex"}}>
-            <p>wil:</p>
+            <p>Person A:</p>
           </div>
           <div style={{display: "flex"}}>
             <p>-</p>
@@ -150,7 +143,7 @@ function App() {
           </div>
           <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
           <div style={{display: "flex"}}>
-            <p>crys:</p>
+            <p>Person B:</p>
           </div>
           <div style={{display: "flex"}}>
             <p>-</p>
@@ -162,7 +155,7 @@ function App() {
           </div>
           <hr style={{backgroundColor: "black", height: 2 + "px", width: 170 + "px", marginTop: 5 + "px", marginBottom: 5 + "px"}}/>
           <div style={{display: "flex"}}>
-            <p>ash:</p>
+            <p>Person C:</p>
           </div>
           <div style={{display: "flex"}}>
             <p>-</p>
@@ -185,11 +178,11 @@ function App() {
             <AccordionItem value="item-1">
               <AccordionTrigger>How does this work? 🤔</AccordionTrigger>
               <AccordionContent>
-                <p>Curious, are ya? This project uses what's called a <a style={{textDecoration: "red underline", color: "red"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering the future. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible). However, for this project, it'll do just fine.</p>
+                <p>Curious? This calculator uses what is known as a <a style={{textDecoration: "red underline", color: "red"}} href="https://www.geeksforgeeks.org/introduction-to-greedy-algorithm-data-structures-and-algorithm-tutorials/">greedy algorithm</a> in computer science. This type of algorithm is called "greedy" because it makes decisions based on the current state of the problem without considering future implications. This sounds great, but it can lead to problems down the line with optimization and time-complexity (aka making your algorithm run as fast as possible). However, for this project, it'll do just fine.</p>
                 <br/>
-                <p>The rough idea of this algorithm is to calculate the net amount for every person by subtracting all debts (amounts to pay) from all credits (amounts to be paid). Once the net amount for every person is evaluated, find the two people with maximum and minimum net amounts– they are the largest creditors and debtors. The person with minimum of the two will be the first person to be settled and removed from list. Let the minimum of two amounts be 𝒙. We pay 𝒙 amount from the maximum debtor to maximum creditor and settle one person. If x is equal to the maximum debit, then the maximum debtor is settled, otherwise the maximum creditor is settled. Continue this process in a recursive loop until both the maximum credit and maximum are zero, or sufficiently small for your purposes.</p>
+                <p>The rough idea of this algorithm is to calculate the net amount for every person by subtracting all debts (amounts to pay) from all credits (amounts to be paid). Once the net amount for every person is evaluated, find the two people with maximum and minimum net amounts– they are the largest creditors and debtors. The person with minimum of the two will be the first person to be settled and removed from list. Let the minimum of two amounts be 𝒙. We pay 𝒙 amount from the maximum debtor to maximum creditor and settle one person. If 𝒙 is equal to the maximum debit, then the maximum debtor is settled, otherwise the maximum creditor is settled. Continue this process in a recursive loop until both the maximum credit and maximum debit are zero, or sufficiently small for your purposes.</p>
                 <br/>
-                <p> C the cool cow and A the artistic armadillo– this won't mean much to yall now, but if you get into coding later, this project was built on a <a style={{textDecoration: "red underline", color: "red"}} href="https://nextjs.org/">next.js framework</a> with <a style={{textDecoration: "red underline", color: "red"}} href="https://react.dev/">React</a> and deployed via <a style={{textDecoration: "red underline", color: "red"}} href="https://vercel.com">Vercel</a>. The frontend was built using components from <a style={{textDecoration: "red underline", color: "red"}} href="https://ui.shadcn.com/">shadcn/ui</a>.</p>
+                <p>This project was built on a <a style={{textDecoration: "red underline", color: "red"}} href="https://nextjs.org/">next.js framework</a> with <a style={{textDecoration: "red underline", color: "red"}} href="https://react.dev/">React</a> and deployed via <a style={{textDecoration: "red underline", color: "red"}} href="https://vercel.com">Vercel</a>. The frontend was built using components from <a style={{textDecoration: "red underline", color: "red"}} href="https://ui.shadcn.com/">shadcn/ui</a>.</p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -199,15 +192,7 @@ function App() {
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
             Built by{" "}
-            <a
-              href={"https://raw.githubusercontent.com/wilson-lama/wcalculator/main/public/problems%3F.png"}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              wils
-            </a>
-              . Source code available on{" "}
+              Wilson Lama. Source code available on{" "}
             <a
               href={"https://github.com/wilson-lama/wcalculator"}
               target="_blank"
